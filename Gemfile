@@ -7,13 +7,13 @@ gem 'rails_12factor'
 
 gem 'pg'
 gem 'friendly_id'
+gem 'twitter-bootstrap-rails-cdn'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'twitter-bootstrap-rails-cdn'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 

@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Domanda</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Questiona</title>
+    <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" %>
+	  <%= twitter_bootstrap_stylesheet_link_tag :netdna %>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
 
-<%= yield %>
+	  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" %>
+	  <%= twitter_bootstrap_javascript_include_tag :netdna %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
 
-</body>
+	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  
+	</head>
+	<body>
+		<header>
+			<%= render 'layouts/header' %>
+		</header>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4">
+					<% flash.each do |key, value| %>
+						<% value.each do |error| %>
+							<div class='<%="alert alert-#{key}"%>'><%= error %></div>
+			    	<%end%>
+				  <% end %>
+				</div>
+			  <%= yield %>
+		  </div>
+		  
+		  <footer class="navbar navbar-fixed-bottom">
+				<hr>			 
+			  <%= debug(params) if Rails.env.development? %>
+			  <%= render 'layouts/footer' %>
+		  </footer>
+		  
+		</div>
+
+	</body>
 </html>

@@ -1,0 +1,48 @@
+<% action = (user.persisted? ? edit_url : signup_url) %>
+<% method = (user.persisted? ? "put" : "post") %>
+<% message = (user.persisted? ? "Update user" : "Create user") %>
+
+<form action="<%= action %>" method="post">
+		
+		<input type="hidden" 
+					 name="_method"
+					 value="<%= method %>">
+
+		<input type="hidden" 
+					 name="authenticity_token"
+					 value="<%= form_authenticity_token %>">
+		
+		<div class="form-group">
+			<label for="user_first_name">First Name: </label>
+			<input type="text" class="form-control" id="user_first_name" name="user[first_name]">
+		</div>
+
+		<div class="form-group">
+			<label for="user_last_name">Last Name: </label>
+			<input type="text" class="form-control" id="user_last_name" name="user[last_name]">
+		</div>		
+
+		<div class="form-group">
+			<label for="user_username">Username: </label>
+			<input type="text" class="form-control" id="user_username" name="user[username]">
+		</div>
+
+		<div class="form-group">
+			<label for="user_email">Email: </label>
+			<input type="text" class="form-control" id="user_email" name="user[email]">
+		</div>
+		
+		<% if method == 'put' %>
+			<div class="form-group">
+				<label for="user_new_password">New Password: </label>
+				<input type="password" class="form-control" id="user_new_password" name="user[new_password]">
+			</div>	
+		<%end%>
+		
+		<div class="form-group">
+			<label for="user_password">Password: </label>
+			<input type="password" class="form-control" id="user_password" name="user[password]">
+		</div>
+		
+		<button type="submit" class="btn btn-primary-md btn-info"><%= message %></button>
+</form>

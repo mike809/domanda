@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: Domanda_development
+  database: Questiona_development
   pool: 5
-  username: Domanda
+  username: Mike
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: Domanda_test
+  database: Questiona_test
   pool: 5
-  username: Domanda
+  username: Mike
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: Domanda_production
+  database: Questiona_production
   pool: 5
-  username: Domanda
+  username: Mike
   password:

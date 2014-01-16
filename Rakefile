@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Domanda::Application.load_tasks
+Questiona::Application.load_tasks

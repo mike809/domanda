@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.friendly_id.find(params[:id])
+		@user = User.find(params[:id])
 
 		if @user.nil?
       flash_msg("User #{params[:id]} does not exist.")

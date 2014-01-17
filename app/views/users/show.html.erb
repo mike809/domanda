@@ -1,5 +1,10 @@
 <div class="row">
-  <h1><%= gravatar_for @user %></h1>
-  
-  <%= @user.full_name %>
+  <aside class="pull-left">
+    <section>
+      <h3>
+        <h1><%= @user.full_name %></h1>
+        <%= gravatar_for @user %>
+      </h3>
+    </section>
+  </aside>
 </div>

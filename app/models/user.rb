@@ -10,15 +10,14 @@
 #  password_digest :string(255)
 #  session_token   :string(255)
 #  password_token  :string(255)
+#  slug            :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 
+
 class User < ActiveRecord::Base
   
-  extend FriendlyId
-  friendly_id :username
-
   VALID_EMAIL_REGEX = Regexp.new(/\A[\w\d\.-]+@(?:\w+\.)+[\w]{2,}\Z/i)
   VALID_USERNAME_REGEX = Regexp.new(/\A\w+[\d\w\-\_]*\Z/i)
 
@@ -31,23 +30,27 @@ class User < ActiveRecord::Base
 
   validates :email, :username,
             :presence => true,
-            :uniqueness => { :case_sensitive => false }
-            # :on => :create,
-            # :on => :update
+            :uniqueness => { :case_sensitive => false },
+            :on => :create,
+            :on => :update
   
   validates :password_digest, :presence => true
 
   validates :password,
             :presence => true,
-            :length => { :minimum => 6 }
-            # :on => :create,
+            :length => { :minimum => 6 },
+            :on => :create
 
   before_validation :ensure_session_token!
 
   def self.find_by_credentials(login, password)              
-  	user = User.where(":login = lower(username) OR :login = lower(email)", :login => login.downcase);
+  	user = User.where(":login = lower(username) OR :login = lower(email)", :login => login.downcase).first;
   	return nil unless user
   	is_password?(user.password_digest, password) ? user : nil
+  end
+
+  def self.is_password?(password_digest, plain_text)
+    BCrypt::Password.new(password_digest) == plain_text
   end
 
   def password=(plain_text)
@@ -72,6 +75,10 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def to_params
+    self.username
   end
 
 end

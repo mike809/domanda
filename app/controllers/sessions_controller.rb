@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 
 		if @user
 			login(@user)
+			flash_msg(["You successfully logged in!"], :success)
 			redirect_to user_url(@user) # Redirect to feed
 		else
 			flash_now(["Invalid credentaials."])
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		logout!
-		redirect_to login_url
+		redirect_to home_url
 	end
 
 end

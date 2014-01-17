@@ -2,14 +2,13 @@
 <html>
 	<head>
 	  <title>Questiona</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" %>
     <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" %>
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
 		
-		<%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" %>
-	  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" %>
-	  <%= javascript_include_tag "application" %>
-	  <%= csrf_meta_tags %>
+		<%= csrf_meta_tags %>
   
 	</head>
 	<body>
@@ -19,13 +18,10 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-4">
-					<% flash.each do |key, value| %>
-						<% value.each do |error| %>
-							<div class='<%="alert alert-#{key}"%>'><%= error %></div>
-			    	<%end%>
-				  <% end %>
-				</div>
+				<%= render 'layouts/errors' %>
+			</div>
+			
+			<div class="row">
 			  <%= yield %>
 		  </div>
 		  
@@ -36,6 +32,10 @@
 		  </footer>
 		  
 		</div>
-
+		
+	  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" %>
+		<%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" %>
+	  <%= javascript_include_tag "application" %>
+	  
 	</body>
 </html>

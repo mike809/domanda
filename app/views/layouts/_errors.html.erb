@@ -1,0 +1,7 @@
+<div class="col-xs-3 col-xs-offset-3">
+	<% flash.each do |key, value| %>
+		<% value.each do |error| %>
+			<div class='<%="alert alert-#{key}"%>'><%= error %></div>
+  	<%end%>
+  <% end %>
+</div>

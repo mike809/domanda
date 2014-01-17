@@ -18,6 +18,11 @@ body{
 	background-color: gray !important; 
 }
 
+#searchbox{
+  width:500px;
+  height:33px;
+}
+
 #logo{
   font-family: Verdana, sans-serif;
   line-height: 1em;
@@ -26,7 +31,7 @@ body{
   font-style:italic;
   font-size: 1.7em;
   text-transform: uppercase;
-  padding-top: 15px;
+  padding-top: 10px;
   z-index: 1; 
   position:relative;
   text-shadow:0px 0px 0 rgb(142,142,142),
@@ -44,4 +49,88 @@ body{
     color: yellow;
     text-decoration: none;
   }
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 10px;
+    pointer-events: none;
+}
+
+.dropdown.merged {
+    margin:10px;
+}
+.dropdown.merged .left-inner-addon {
+    border-right: 0px;
+    background-color: #FFFFFF;
+}
+
+.dropdown.merged input {
+    width:190px;
+    border-left: 0px;
+    background-color: #FFFFFF;
+}
+
+.focusedInput {
+    border-color: rgba(82,168,236,.8) ;
+    outline: 0;
+    outline: thin dotted \9;
+    -moz-box-shadow: 0 0 8px rgba(82,168,236,.6);
+         box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+
+#logout-button{
+  margin:10px;
+  margin-bottom: 10px;
+  
+  width: 120px;
+  height: 32px;
+  font-size: 13px;
+}
+
+.dropdown#login-button{
+  margin:10px;
+  margin-bottom: 10px;
+  
+  width: 190px;
+  height: 32px;
+  font-size: 13px;
+}
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  color: yellow;
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.0em;
+  line-height: 1.7em;
+}
+
+label{
+  font-size: 1.3em;
 }

@@ -59,8 +59,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
-    friendly_id (4.0.10.1)
-      activerecord (>= 3.0, < 4.0)
     haml (4.0.4)
       tilt
     hike (1.2.3)
@@ -166,7 +164,6 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 3.2.1)
   debugger
-  friendly_id
   jquery-rails
   mailcatcher
   newrelic_rpm

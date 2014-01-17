@@ -14,10 +14,18 @@
     
     <ul class="nav navbar-nav">
       <form action="<%= search_url %>" class="navbar-form pull-left" method="POST" role="search">
+        <input type="hidden" 
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+
         <div class="form-group">
           <div class="left-inner-addon ">
             <i class="glyphicon glyphicon-search"></i>
-            <input type="text" class="form-control input-box" placeholder="Search" id="searchbox">
+            <input type="text" 
+                   class="form-control input-box" 
+                   placeholder="Search"
+                   id="searchbox"
+                   name="keywords">
           </div>
         </div>
         <button type="submit" class="btn btn-danger">Search</button>
@@ -55,7 +63,7 @@
                   <input type="hidden" name="_method" value="delete">
                   <div>
                     <button class="btn btn-md btn-danger" id="logout-button">
-                      <i class="glyphicon glyphicon-off"></i>  Logout
+                      <span class="glyphicon glyphicon-off"></span>  Logout
                     </button>
                   </div>
                 </form>

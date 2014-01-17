@@ -1,10 +1,3 @@
 <div class="row">
-  <aside class="pull-left">
-    <section>
-      <h3>
-        <h1><%= @user.full_name %></h1>
-        <%= gravatar_for @user %>
-      </h3>
-    </section>
-  </aside>
+	<%= render 'layouts/show_user', :user => @user %>
 </div>

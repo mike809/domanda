@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
-  def to_params
+  def to_param
     self.username
   end
 

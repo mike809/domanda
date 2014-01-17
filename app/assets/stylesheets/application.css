@@ -63,15 +63,15 @@ body{
     pointer-events: none;
 }
 
-.dropdown.merged {
+.dropdown .merged {
     margin:10px;
 }
-.dropdown.merged .left-inner-addon {
+.dropdown .merged .left-inner-addon {
     border-right: 0px;
     background-color: #FFFFFF;
 }
 
-.dropdown.merged input {
+.dropdown .merged input {
     width:190px;
     border-left: 0px;
     background-color: #FFFFFF;
@@ -94,7 +94,7 @@ body{
   font-size: 13px;
 }
 
-.dropdown#login-button{
+.dropdown #login-button{
   margin:10px;
   margin-bottom: 10px;
   

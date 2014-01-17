@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			login(@user)
+			flash_msg(["You successfully created an account!"], :success)
 			redirect_to user_url(@user)
 		else
 			flash_now(@user.errors.full_messages)
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = User.find_by_username(params[:id])
 
 		if @user.nil?
       flash_msg("User #{params[:id]} does not exist.")

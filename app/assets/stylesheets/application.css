@@ -133,3 +133,22 @@ p {
 label{
   font-size: 1.3em;
 }
+
+
+ /* Footer */
+
+ * {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.content {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+.footer, .push {
+  height: 4em;
+}

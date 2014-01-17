@@ -24,7 +24,6 @@
 //= require_tree .
 
 
-
 $(".merged input").on({
     focus: function() { $(this).prev().addClass("focusedInput") },
     blur:  function() { $(this).prev().removeClass("focusedInput") }

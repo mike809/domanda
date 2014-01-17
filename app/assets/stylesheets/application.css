@@ -15,7 +15,7 @@
 
 body{
 	padding-top: 70px;
-	background-color: gray !important; 
+	background-color: lightgray !important; 
 }
 
 #searchbox{
@@ -46,7 +46,7 @@ body{
               0px 0px 6px rgba(0,0,0,.2);
   
   &:hover {
-    color: yellow;
+    color: grey;
     text-decoration: none;
   }
 }
@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  color: yellow;
+  color: #980000;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;

@@ -1,4 +1,4 @@
-Questiona.Models.Search = Backone.Model.extend({
+Questiona.Models.Search = Backbone.Model.extend({
 
 	initialize: function(){
 		this.performSearch($('#search-box').val())
@@ -17,17 +17,17 @@ Questiona.Models.Search = Backone.Model.extend({
 
   
 
-  var SearchResultsView = Backbone.View.extend({
-    tagName: "ul",
-    id: "results-list",
-    initialize: function() {
-        this.model.on("change:searchResults", this.displayResults, this);
-    },
-    displayResults: function(model, results) {
-      //append results to results-list here.   
-      //update contents of blurb here?
-    }
-  });
-  var searchModel = new SearchModel();
-  var searchFormView = new SearchFormView({ model: searchModel });
-  var searchResultsView = new SearchResultsView({ model: searchModel });
+  // var SearchResultsView = Backbone.View.extend({
+  //   tagName: "ul",
+  //   id: "results-list",
+  //   initialize: function() {
+  //       this.model.on("change:searchResults", this.displayResults, this);
+  //   },
+  //   displayResults: function(model, results) {
+  //     //append results to results-list here.   
+  //     //update contents of blurb here?
+  //   }
+  // });
+  // var searchModel = new SearchModel();
+  // var searchFormView = new SearchFormView({ model: searchModel });
+  // var searchResultsView = new SearchResultsView({ model: searchModel });

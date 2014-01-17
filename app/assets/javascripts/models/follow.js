@@ -1,3 +1,3 @@
-Questiona.Models.Follow = Backbone.Models.extend({
+Questiona.Models.Follow = Backbone.Model.extend({
 	
 });

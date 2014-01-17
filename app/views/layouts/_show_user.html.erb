@@ -1,8 +1,2 @@
-<aside class="pull-left">
-  <section>
-    <h3>
-      <h1><a href="<%= user_url(user)%>"><%= user.full_name %></a></h1>
-      <%= gravatar_for user %>
-    </h3>
-  </section>
-</aside>
+<%= gravatar_for user %>
+<a href="<%= user_url(user)%>"><%= user.full_name %></a>

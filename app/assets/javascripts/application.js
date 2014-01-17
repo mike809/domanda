@@ -11,8 +11,18 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.serializeJSON
 //= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require questiona
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
+
 
 
 $(".merged input").on({

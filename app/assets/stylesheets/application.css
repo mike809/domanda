@@ -15,10 +15,10 @@
 
 body{
 	padding-top: 70px;
-	background-color: lightgray !important; 
+	/*background-color: lightgray !important; */
 }
 
-#searchbox{
+#search-box{
   width:500px;
   height:33px;
 }
@@ -26,7 +26,7 @@ body{
 #logo{
   font-family: Verdana, sans-serif;
   line-height: 1em;
-  color: #980000;
+  color: white;
   font-weight:bold;
   font-style:italic;
   font-size: 1.7em;
@@ -111,7 +111,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  color: #980000;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;

@@ -13,7 +13,12 @@
   <div class="collapse navbar-collapse" id="navbar-collapse">
     
     <ul class="nav navbar-nav">
-      <form action="<%= search_url %>" class="navbar-form pull-left" method="POST" role="search">
+      <form action="<%= search_url %>" 
+            class="navbar-form pull-left" 
+            method="POST" 
+            id="search-form" 
+            role="search">
+
         <input type="hidden" 
                name="authenticity_token"
                value="<%= form_authenticity_token %>">
@@ -24,7 +29,7 @@
             <input type="text" 
                    class="form-control input-box" 
                    placeholder="Search"
-                   id="searchbox"
+                   id="search-box"
                    name="keywords">
           </div>
         </div>

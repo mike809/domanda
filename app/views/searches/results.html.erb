@@ -1,13 +1,10 @@
 <div class="col-xs-4 col-xs-offset-4">
 	<ul>
-		<% if @users %>
-
-			<% @users.each do |user| %>
-				<li><%= render 'layouts/show_user', :user => user %></li>
-			<% end %>
-			
-		<% else %>
-			<%= render 'layouts/header' %>
+		<% @users.each do |user| %>
+			<li>
+				<%= render 'layouts/show_user', :user => user %>
+			</li>
+			<hr>
 		<% end %>
 	</ul>
 </div>

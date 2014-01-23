@@ -5,10 +5,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :first_name
       t.string :last_name
+      t.string :bio
       t.string :email
       t.string :password_digest
-   		t.string :session_token
-   		t.string :password_token 
+      t.string :session_token
+      t.string :password_token 
    		# t.string :confirmation_token
    		# t.boolean :confirmed
 

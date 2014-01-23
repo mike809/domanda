@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 		@user = User.find_by_username(params[:id])
 
 		if @user.nil?
-      flash_msg("User #{params[:id]} does not exist.")
+      flash_msg(["User #{params[:id]} does not exist."])
       redirect_to :back
     else
       render :show
@@ -31,11 +31,12 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = current_user
 		render :edit
 	end
 
 	def update
 		debugger
 	end
-
+	
 end

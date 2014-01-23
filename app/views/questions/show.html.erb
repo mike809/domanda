@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-xs-3 col-xs-offset-4">
+		<%= render 'layouts/question', :question => @question %>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-3 col-xs-offset-4">
+		<form action="<%= user_question_answers_url(current_user, @question) %>" method="post">
+			
+			<input type="hidden" 
+						 name="authenticity_token"
+						 value="<%= form_authenticity_token %>">
+
+			<div class="form-group">
+				<input type="text" 
+									placeholder="Add your answer"
+									class="form-control" 
+							 		id="answer_body"
+							 		name="answer[body]">
+			</div>
+			
+			<input type="submit" class="my-hidden"/>
+		</form>
+		
+		<% unless @answer %>
+			<%= render 'layouts/answers', :answers => @question.answers %>	
+		<% end %>
+	</div>
+</div>

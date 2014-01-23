@@ -1,9 +1,7 @@
 <div class="col-xs-4 col-xs-offset-4">
 	<ul>
 		<% @users.each do |user| %>
-			<li>
-				<%= render 'layouts/show_user', :user => user %>
-			</li>
+			<%= render 'layouts/show_user', :user => user %>
 			<hr>
 		<% end %>
 	</ul>

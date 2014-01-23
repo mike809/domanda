@@ -1,0 +1,9 @@
+<li id="answer-<%= answer.id %>">
+	<b><%= answer.author.full_name %></b>
+	<p><%= answer.body %></p>
+
+	<div class="upvotes" data-id="<%= answer.id %>">
+		<a href="#" class="glyphicon glyphicon-hand-up"><%= answer.upvotes.count %>
+		</a>
+	</div>
+</li>

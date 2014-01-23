@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: answers
+#
+#  id          :integer          not null, primary key
+#  author_id   :integer
+#  body        :string(255)
+#  upvotes     :integer
+#  question_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author_id: 1
+  body: MyString
+  upvotes: 1
+
+two:
+  author_id: 1
+  body: MyString
+  upvotes: 1

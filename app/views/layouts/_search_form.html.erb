@@ -1,0 +1,23 @@
+<form action="<%= search_url %>" 
+      class="navbar-form pull-left" 
+      method="POST" 
+      id="search-form" 
+      role="search">
+
+  <input type="hidden" 
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <div class="form-group">
+    <div class="left-inner-addon">
+      <i class="glyphicon glyphicon-search"></i>
+      <input type="text" 
+             class="form-control input-box" 
+             placeholder="Search"
+             id="search-box"
+             name="keywords">
+    </div>
+  </div>
+  
+  <input type="submit" class="my-hidden"/>
+</form>

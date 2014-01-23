@@ -1,0 +1,15 @@
+<h2><%= question.title %></h2>
+<%= render 'layouts/topics', :topics => question.topics %>	
+
+<p><%= question.body %></p>
+<% if question.author == current_user %>
+	<form action="<%= edit_question_url(question) %>" method="GET">
+		<button class="btn btn-xs btn-warning" id="edit-question">
+			Edit Question
+		</button>
+	</form>
+<% end %>
+
+<% if @answer%>
+	<%= render 'layouts/answers', :answers => [@answer] %>
+<% end %>

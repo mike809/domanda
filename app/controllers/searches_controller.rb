@@ -1,12 +1,18 @@
 class SearchesController < ApplicationController
 
-	def create
-		@users = User.search(params[:keywords])
+	def index
+		@users = User.search(*params[:keywords].split('+'))
 
-		unless @users.size > 0 
+		if @users.empty?
 			flash_msg(["No results found."], :warning)
 		end
+
 		render :results
+	end
+
+	def create
+		keywords = params[:keywords].split(' ')
+		redirect_to results_url(keywords.join('+'))
 	end
 
 end

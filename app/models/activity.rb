@@ -65,7 +65,7 @@ class Activity < ActiveRecord::Base
 	def url(sub = subject)
 		return nil unless sub
 		attrs = {
-			:host 			=> "http://questiona.herokuapp.com/",
+			:host 			=> "questiona.herokuapp.com/",
 			:controller => sub.class.to_s.tableize,
 			:action 		=> "show",
 			:id 				=> sub

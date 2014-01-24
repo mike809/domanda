@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   has_many :followed_me, :class_name => "Follow", :foreign_key => :followee_id
 
   has_many :followers, :through => :followed_me, :source => :follower
-  has_many :people_followed, :through => :i_followed, :source => :followee
+  # has_many :people_followed, :through => :i_followed, :source => :followee
 
   has_many :authored_questions,
            :class_name => "Question",
@@ -60,6 +60,24 @@ class User < ActiveRecord::Base
            :foreign_key => :author_id
 
   has_many :upvoted_answers, :class_name => "Upvote"
+
+  def people_followed
+    User.find_by_sql(<<-SQL 
+      SELECT 
+        users.* 
+      FROM 
+        users
+      JOIN 
+        follows 
+        ON 
+        users.id = follows.followee_id 
+      WHERE 
+        follows.follower_id = #{self.id}
+          AND 
+        follows.type_followee = 'user'
+      SQL
+    )
+  end
 
   def self.find_by_credentials(login, password)              
   	user = User.where(":login = lower(username) OR :login = lower(email)", :login => login.downcase).first;

@@ -21,24 +21,6 @@ class Answer < ActiveRecord::Base
 
   after_create :log_activity
 
-  def followers
-    User.find_by_sql(<<-SQL 
-      SELECT 
-        * 
-      FROM 
-        users
-      JOIN 
-        follows 
-        ON 
-        users.id = follows.follower_id 
-      WHERE 
-        follows.followee_id = '1' 
-          AND 
-        follows.type_followee = 'Question'
-      SQL
-    )
-  end
-
   def log_activity
 		log = Activity.create!({
 			:subject_id   => self.id,              # This

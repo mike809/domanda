@@ -18,7 +18,7 @@ class Follow < ActiveRecord::Base
 	belongs_to :followee, :class_name => "User"
 
 	validates :followee_id, :follower_id, :presence => true
-	validates :follower_id, :uniqueness => { :scope => :followee_id }
+	validates :follower_id, :uniqueness => { :scope => [:followee_id, :type_followee] }
 
 	after_create :log_activity
 

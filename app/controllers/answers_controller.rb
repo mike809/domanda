@@ -21,6 +21,13 @@ class AnswersController < ApplicationController
 		render 'questions/show'
 	end
 
+	def index
+		user = User.find_by_username(params[:user_id])
+		@answers   = Answer.where(:author_id => user.id)
+
+		render :index
+	end
+
 	def update
 
 	end

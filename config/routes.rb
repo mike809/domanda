@@ -21,9 +21,10 @@ Questiona::Application.routes.draw do
     
   resources :users, :only => [:show, :update, :edit], :path => '/' do
     # Questions
-    resources :questions, :only => :show do
+    resources :questions, :only => [:show, :index] do
       resources :answers, :only => [:create, :update, :destoy]
     end
+    resources   :answers, :only => :index 
     # Follow
     get '/follows/:bool', :to => 'followers#index', :as => 'follows'
   end 

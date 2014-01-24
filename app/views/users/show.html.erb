@@ -1,3 +1,7 @@
 <div class="col-xs-4 col-xs-offset-1">
 	<%= render 'layouts/show_user', :user => @user %>
 </div>
+
+<div class="col-xs-10 ">
+	<%= render 'layouts/feed', :feed => @user.feed %>
+</div>

@@ -4,10 +4,8 @@ class StaticPagesController < ApplicationController
   
   def home
     if user_signed_in?
-      @feed = current_user.feed.sort_by(&:updated_at)
-      # render :json => @feed
+      @feed = current_user.feed.sort_by(&:updated_at).reverse
       render :feed
-      # redirect_to user_url(current_user) # Feed
     else
       render :home
     end

@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-3">
+
+		<% @answers.each do |answer| %>
+			<%= render 'layouts/question', :question => answer.question, :answer => answer %>
+		<% end %>
+		
+	</div>
+</div>

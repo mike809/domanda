@@ -44,7 +44,7 @@
           <ul class="dropdown-menu">
             <% current_user && current_user.notifications.each do |notification| %>
               <li>
-                <%= gravatar_for notification.owner, { :size => 15 } %>
+                <%#= gravatar_for notification.creator, { :size => 15 } %>
                 <a href="<%= notification.url %>"><%= notification.text %></a>
                 <li class="divider"></li>
               </li>

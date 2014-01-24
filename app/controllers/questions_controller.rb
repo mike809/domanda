@@ -1,5 +1,17 @@
 class QuestionsController < ApplicationController
-	
+  
+  def index
+    user = User.find_by_username(params[:user_id])
+    @questions = Question.where(:author_id => user.id)
+
+    if @questions.empty?
+      flash_msg(["This user haven't asked any questions."], :info)
+      redirect_to user_url(current_user)
+    else
+      render :index
+    end
+  end
+
 	def edit
 		@edit = true
 		@question = Question.find(params[:id])
@@ -8,8 +20,6 @@ class QuestionsController < ApplicationController
 
   def show
   	@question = Question.find(params[:id])
-
-    p @question
 
   	if @question
   		render :show

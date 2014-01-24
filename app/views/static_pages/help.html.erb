@@ -1,5 +1,59 @@
 <% provide(:title, 'Help') %>
-<h1>Help</h1>
-<p>
-    Not implemented Yet
-</p>
+<div class="row">
+  <div class="col col-xs-offset-2">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="assets/pomskies.jpg">
+          <div class="carousel-caption">
+            Our interns
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/cute_cat.jpg">
+          <div class="carousel-caption">
+            CEO
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/kitty.jpg">
+          <div class="carousel-caption">
+            CFO
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div data-spy="scroll" data-target=".navbar-inverse">
+  <div class="row" id="how">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h5>HOW DOES IT WORK?</h5>
+      <p>With Karma, you <b id="pay-tooltip">pay</b> for data as you go, and take it with you on your 4G mobile hotspot.
+  Post pics to Facebook. Catch up on the news. Video chat <b id="kids-tooltip">with your kids</b>. You know what to do.</p>
+    </div>
+  </div>
+  <div class="row" id="why">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h5>WHY IS IT DIFFERENT?</h5>
+      <p><b id="karma-tooltip">Your Karma hotspot</b> has an open Wi-Fi signal. Anyone around can connect to it.
+  When they do you'll both receive 100MB of free data. It's Social Bandwidth.</p>
+    </div>
+  </div>
+</div>

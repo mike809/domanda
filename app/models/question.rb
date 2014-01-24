@@ -45,4 +45,23 @@ class Question < ActiveRecord::Base
 		title
 	end
 
+	def followers
+    User.find_by_sql(<<-SQL 
+      SELECT 
+        users.* 
+      FROM 
+        users
+      JOIN 
+        follows 
+        ON 
+        users.id = follows.follower_id 
+      WHERE 
+        follows.followee_id = #{self.id}
+          AND 
+        follows.type_followee = 'question'
+      SQL
+    )
+  end
+
+
 end

@@ -25,4 +25,8 @@ class Notification < ActiveRecord::Base
 		owner_type.constantize.find(owner_id)
 	end
 
+  def creator
+    # User.find_by_username()
+  end
+
 end

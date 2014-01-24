@@ -1,2 +1,18 @@
-<% log = entry.parse_log %>
-<a href="<%= log[:url] %>"><%= log[:text] %></a>
+<% log  = entry.parse_log %>
+<% post = entry.post %>
+
+<div class="row">
+	<div class="col-xs-offset-3">
+		<h2>
+			<b><%= post[:title] %></b>	
+		</h2>
+		<h3>
+			<i>
+				<%= post[:body] %>
+			</i>
+		</h3>
+		<a href="<%= log[:url] %>">
+			<%= log[:text] %>
+		</a>
+	</div>
+</div>

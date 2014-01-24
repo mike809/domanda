@@ -30,4 +30,8 @@
 	<% user.people_followed[0..9].each do |followee| %>
 		<%= gravatar_for followee, { :size => 25 } %>	
 	<% end %>
+	<br>
+	<a href="<%= user_questions_url(user) %>">Asked Questions</a>
+	<br>
+	<a href="<%= user_answers_url(user) %>">Answered Questions</a>
 </div>

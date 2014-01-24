@@ -48,9 +48,7 @@ class User < ActiveRecord::Base
   has_many :i_followed, :class_name => "Follow" , :foreign_key => :follower_id
   has_many :followed_me, :class_name => "Follow", :foreign_key => :followee_id
 
-  # Who is the follower in the follows where someone followed me.
   has_many :followers, :through => :followed_me, :source => :follower
-  # Who is the followee in the follows where I followed someone.
   has_many :people_followed, :through => :i_followed, :source => :followee
 
   has_many :authored_questions,
@@ -107,31 +105,21 @@ class User < ActiveRecord::Base
   end
 
   def notifications
-    notification = Notification.where("owner_id = #{self.id} AND owner_type = 'User'")
-
-    # self.people_followed.each do |person|
-    #   notification += person.activities
-    # end
-
-    notification
+    Notification.where("owner_id = #{self.id} AND owner_type = 'User'")
   end
 
   def feed
-    # questions = self.authored_questions
-    # answers   = self.answered_questions
     activity = activities
     
     self.people_followed.each do |person|
       activity += person.activities
     end
 
-    activity
-
-    # questions + answers# + activity
+    activity.uniq
   end
 
   def name
-    username
+    full_name
   end
 
 end

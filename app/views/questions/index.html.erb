@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-3">
+		<h1>Questions</h1>
+		<% @questions.each do |question| %>
+			<%= render 'layouts/question', :question => question, :index => true %>
+		<% end %>
+	</div>
+</div>

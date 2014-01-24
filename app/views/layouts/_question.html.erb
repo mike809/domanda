@@ -1,7 +1,12 @@
-<h2><%= question.title %></h2>
+<a href="<%= user_question_url(question.author, question )%>">
+	<h2><%= question.title %></h2>
+</a>
 <%= render 'layouts/topics', :topics => question.topics %>	
 
 <p><%= question.body %></p>
+<a href="<%= user_url(question.author)%>">
+	<%= question.author.full_name %>
+</a>
 <% if question.author == current_user %>
 	<form action="<%= edit_question_url(question) %>" method="GET">
 		<button class="btn btn-xs btn-warning" id="edit-question">
@@ -10,6 +15,21 @@
 	</form>
 <% end %>
 
-<% if @answer%>
-	<%= render 'layouts/answers', :answers => [@answer] %>
+<% if question.followers.include?(current_user); %>
+	<% btn_class, btn_content, btn_id = "unfollow btn-danger", "Unfollow", "delete" %>
+<% else %>
+	<% btn_class, btn_content, btn_id = "follow btn-info", "Follow", "post" %>
+<% end %>
+
+<% if btn_class %>
+	<button class="btn btn-xs follow-btn <%= btn_class %>" 
+					data-id=<%= question.id %>
+					id='<%= btn_id %>'
+					data-type="question" >
+		<%= btn_content %>
+  </button>
+<% end %>
+
+<% if @answer %>
+	<%= render 'layouts/answers', :answers => [ answer ] %>
 <% end %>

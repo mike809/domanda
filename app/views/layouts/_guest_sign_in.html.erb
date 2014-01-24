@@ -1,0 +1,29 @@
+<form action="<%= login_url %>" method="post">
+  <input type="hidden" 
+  			 name="authenticity_token"
+  	 		 value="<%= form_authenticity_token %>">
+
+	<div class="form-group merged">
+    <input type="hidden" 
+    			 class="form-control"
+    			 placeholder="Username or Email" 
+    			 id="user_login"
+    			 name="user[login]"
+           value="guest">
+  </div>
+
+  <div class="form-group merged"  class="hidden">
+    <input type="hidden" 
+    			 class="form-control"
+    			 placeholder="Password" 
+    			 id="user_password" 
+    			 name="user[password]"
+           value="password">
+  </div>
+  
+  <button type="submit" class="btn btn-danger" id="login-button">
+    <div class="jumbotron btn btn-danger">
+      <h1>Sign In as a Guest</h1>
+    </div>    
+  </button>
+</form>

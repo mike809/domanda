@@ -1,8 +1,1 @@
-<div class="col-sm-6 col-sm-offset-3">
-	<% @feed.each do |entry| %>
-		<div class="row">
-			<%= render 'layouts/entry', :entry => entry %>
-		</div>
-		<hr>
-	<% end %>
-</div>
+<%= render 'layouts/feed', :feed => @feed %>

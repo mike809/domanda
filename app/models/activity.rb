@@ -18,11 +18,6 @@ class Activity < ActiveRecord::Base
 
   after_create :log_notification
 
-  # Notifications only fire on:
-  # User follow
-  # Upvoted my answer
-  # Answered my question or question I follow
-
   def log_notification
 
   	# Follow
@@ -49,7 +44,7 @@ class Activity < ActiveRecord::Base
 	  elsif subject_type == "Answer" && action = "Answered"
 	  	answer = Answer.find(subject_id)
 
-	  	answer.followers.each do |person|
+	  	answer.question.followers.each do |person|
 	  		Notification.create!({
 		    	:owner_id   => person.id,
 		    	:owner_type => "User",
@@ -70,7 +65,7 @@ class Activity < ActiveRecord::Base
 	def url(sub = subject)
 		return nil unless sub
 		attrs = {
-			:host 			=> "http://quiet-shelf-8121.herokuapp.com/",
+			:host 			=> "localhost:3000", # "http://questiona.herokuapp.com/",
 			:controller => sub.class.to_s.tableize,
 			:action 		=> "show",
 			:id 				=> sub
@@ -119,7 +114,28 @@ class Activity < ActiveRecord::Base
 
 	def text(sub =  subject)
 		return nil unless sub
-		"#{sub.name} #{action} #{target.name}."
+		target_name = target.name
+		obj = target_type == "User" ? target_name : target_type.downcase
+		"#{sub.name} #{action} #{obj}."
+	end
+
+	def post
+		case action
+			when 'Asked'
+				question = Question.find_by_id(target_id)
+				post     = { :title => question.title, :body => question.body }	
+			when 'Answered'
+				question = Question.find_by_id(subject_id)
+				answer   = Answer.find_by_id(target_id)
+				post     = { :title => question.title, :body => answer.body }	
+			when 'Up voted'
+				answer   = Answer.find_by_id(target_id)
+				post     = { :title => "", :body => answer.body }	
+			when 'Followed'
+				post     = { :title => "", :body => "" }
+		end
+
+		post
 	end
 
 end

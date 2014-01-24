@@ -38,7 +38,10 @@
         <li class="dropdown">
           <% count = (current_user ? current_user.notifications.count : 0) %>
           <a href="#" class="dropdown-toogle" data-toggle="dropdown">
-            <%= count if count > 0 %> Notifications <b class="caret"></b>
+            <% if count > 0  %>
+              <span class="badge btn-danger"><%= count %></span>
+            <% end %> 
+             Notifications <b class="caret"></b>
           </a>
 
           <ul class="dropdown-menu">

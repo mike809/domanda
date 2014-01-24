@@ -215,3 +215,7 @@ a>h2:hover, a:hover {
 table{
   width:100%;
 }
+
+li {
+  list-style-type: none;
+}

@@ -24,11 +24,12 @@ class FollowersController < ApplicationController
 		follow.follower_id   = current_user.id
 		follow.followee_id   = followee_id
 		follow.type_followee = params[:type]
+		followee_type = follow.type_followee.classify.constantize
 
 		if follow.save
 			render :json => { 
 				:alert => :info,
-				:content =>  "You are now following #{User.find(followee_id).username}." 
+				:content =>  "You are now following #{followee_type} '#{followee_type.find(followee_id).name}'." 
 			}
 		else
 			render :json => { :errors => follow.errors.full_messages }

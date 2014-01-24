@@ -67,7 +67,7 @@ class Activity < ActiveRecord::Base
 	def url(sub = subject)
 		return nil unless sub
 		attrs = {
-			:host 			=> "localhost:3000", # "questiona.herokuapp.com",
+			:only_path  => true,
 			:controller => sub.class.to_s.tableize,
 			:action 		=> "show",
 			:id 				=> sub
@@ -91,14 +91,21 @@ class Activity < ActiveRecord::Base
 				:url => url(answer)
 			}
 
-		elsif target_type == "Question" # Asked
+		elsif target_type == "Question" # Asked or Followed
 			question = Question.find_by_id(target_id)
 			return empty unless question
 
-	  	return { 
-	  		:text => text(question.author), 
-	  		:url => url(question)
-	  	}
+			if action != "Follow"
+		  	return { 
+		  		:text => text(question.author), 
+		  		:url => url(question)
+		  	}
+		  else
+		  	return { 
+		  		:text => text(question), 
+		  		:url => url(question)
+		  	}
+		  end
 	  end
 	end
 
@@ -117,8 +124,9 @@ class Activity < ActiveRecord::Base
 	def text(sub =  subject)
 		return nil unless sub
 		target_name = target.name
-		obj = target_type == "User" ? target_name : target_type.downcase
-		"#{sub.name} #{action} #{obj.humanize}."
+		obj = target_type == "User" ? target_name : target_type
+
+		"#{sub.name} #{action} #{obj}."
 	end
 
 	def post
@@ -134,7 +142,12 @@ class Activity < ActiveRecord::Base
 				answer   = Answer.find_by_id(target_id)
 				post     = { :title => "", :body => answer.body }	
 			when 'Followed'
-				post     = { :title => "", :body => "" }
+				if target_type == "Question"
+					question = Question.find_by_id(target_id)
+					post   = { :title => question.title, :body => question.body }
+				else
+					post   = { :title => "", :body => "" }
+				end
 		end
 
 		post

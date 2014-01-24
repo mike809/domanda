@@ -16,9 +16,10 @@
 	</a>
 </p>
 
-<% if question.followers.include?(current_user); %>
+<% if question.followers.include?(current_user) && question.author != current_user %>
 	<% btn_class, btn_content, btn_id = "unfollow btn-danger", "Unfollow Question", "delete" %>
-<% else %>
+	<%= question.author != current_user %>
+<% elsif question.author != current_user %>
 	<% btn_class, btn_content, btn_id = "follow btn-info", "Follow Question", "post" %>
 <% end %>
 

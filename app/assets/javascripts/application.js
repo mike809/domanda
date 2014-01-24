@@ -71,7 +71,7 @@ $(document).ready(function(){
         count++;
       }
 
-      if(count === 3){
+      if(count === 2){
      		$("#new-question-form").submit();
       }
     })

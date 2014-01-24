@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 
 	def index
-		@users = User.search(*params[:keywords].split('+'))
+		@users = User.search(params[:keywords].split('+'))
 
 		if @users.empty?
 			flash_msg(["No results found."], :warning)

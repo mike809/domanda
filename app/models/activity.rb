@@ -87,7 +87,7 @@ class Activity < ActiveRecord::Base
 	  	return empty unless answer
 
 			return {
-				:text => text(answer.author),
+				:text => text(User.find_by_id(subject_id)),
 				:url => url(answer)
 			}
 
@@ -140,7 +140,7 @@ class Activity < ActiveRecord::Base
 				post     = { :title => question.title, :body => answer.body }	
 			when 'Up voted'
 				answer   = Answer.find_by_id(target_id)
-				post     = { :title => "", :body => answer.body }	
+				post     = { :title => answer.question.title, :body => answer.body }	
 			when 'Followed'
 				if target_type == "Question"
 					question = Question.find_by_id(target_id)

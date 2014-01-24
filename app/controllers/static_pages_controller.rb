@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   
   def home
     if user_signed_in?
-      @feed = current_user.feed.sort_by(&:updated_at).reverse
+      @feed = current_user.feed.sort_by(&:updated_at).reverse.uniq
       render :feed
     else
       render :home

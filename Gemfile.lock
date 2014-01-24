@@ -82,6 +82,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    faker (1.0.1)
+      i18n (~> 0.4)
     haml (4.0.4)
       tilt
     hike (1.2.3)
@@ -201,6 +203,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   ejs
+  faker
   jquery-rails
   mailcatcher
   newrelic_rpm

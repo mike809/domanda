@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# ActiveRecord::Base.transaction do
+
+# 	User.create!()
+
+# 	Question.create!()
+
+# 	Answer.create!()
+
+# end

@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
 		answer = Answer.create(params[:answer])
 
 		if answer.save 
-			redirect_to :back
+			redirect_to user_question_url(answer.question.author, answer.question)
 		else
 			flash_now(answer.errors.full_messages)
 			redirect_to :back

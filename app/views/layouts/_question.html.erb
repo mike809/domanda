@@ -11,9 +11,11 @@
 
 <p>
 	<%= question.body %>
-	<a href="<%= edit_question_url(question) %>">
-		Edit Question
-	</a>
+	<% if question.author == current_user %>
+		<a href="<%= edit_question_url(question) %>">
+			Edit Question
+		</a>
+	<% end %>
 </p>
 
 <% if question.followers.include?(current_user) && question.author != current_user %>

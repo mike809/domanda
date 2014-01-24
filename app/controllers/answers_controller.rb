@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
 
 	def create
 		params[:answer][:question_id] = params[:question_id]
-		params[:answer][:author_id] = current_user.id
+		params[:answer][:author_id]   = current_user.id
 		answer = Answer.create(params[:answer])
 
 		if answer.save 
@@ -26,10 +26,15 @@ class AnswersController < ApplicationController
 	end
 
 	def index
-		user = User.find_by_username(params[:user_id])
+		user       = User.find_by_username(params[:user_id])
 		@answers   = Answer.where(:author_id => user.id)
 
-		render :index
+		if @answers
+			render :index
+		else
+			flash_msg(["This user hasn't answered any questions yet."])
+			redirect_to user_url(user)
+		end
 	end
 
 	def update

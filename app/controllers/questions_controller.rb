@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
     if @questions.empty?
       flash_msg(["This user haven't asked any questions."], :info)
-      redirect_to user_url(current_user)
+      redirect_to user_url(user)
     else
       render :index
     end

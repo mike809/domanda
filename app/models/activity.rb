@@ -65,7 +65,7 @@ class Activity < ActiveRecord::Base
 	def url(sub = subject)
 		return nil unless sub
 		attrs = {
-			:host 			=> "questiona.herokuapp.com/",
+			:host 			=> "questiona.herokuapp.com",
 			:controller => sub.class.to_s.tableize,
 			:action 		=> "show",
 			:id 				=> sub
@@ -116,7 +116,7 @@ class Activity < ActiveRecord::Base
 		return nil unless sub
 		target_name = target.name
 		obj = target_type == "User" ? target_name : target_type.downcase
-		"#{sub.name} #{action} #{obj}."
+		"#{sub.name} #{action} #{obj.humanize}."
 	end
 
 	def post

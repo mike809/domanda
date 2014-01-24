@@ -90,7 +90,6 @@ $(document).ready(function(){
 			  },
 
 			  error: function( req, status, err ) {
-			  	alert();
 			    console.log( 'something went wrong', status, err );
 			  }
 			});  	

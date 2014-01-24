@@ -13,14 +13,14 @@
 						 value="<%= form_authenticity_token %>">
 
 			<div class="form-group">
-				<input type="text" 
-									placeholder="Add your answer"
+				<textarea type="text" 
+									placeholder="Add your answer here."
 									class="form-control" 
 							 		id="answer_body"
-							 		name="answer[body]">
+							 		name="answer[body]"></textarea>
 			</div>
 			
-			<input type="submit" class="my-hidden"/>
+			<button type="submit" class="btn btn-xs btn-info pull-right">Add Answer</button>
 		</form>
 		
 		<% unless @answer %>

@@ -1,7 +1,11 @@
 <div class="col-xs-4 col-xs-offset-4">
 	<ul>
-		<% @users.each do |user| %>
-			<%= render 'layouts/show_user', :user => user %>
+		<% @results.each do |result| %>
+			<% if result.class == User %>
+				<%= render 'layouts/show_user', :user => result %>
+			<% else %>
+				<%= render 'layouts/question', :question => result, :index => true %>
+			<% end %>
 			<hr>
 		<% end %>
 	</ul>

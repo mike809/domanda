@@ -63,5 +63,8 @@ class Question < ActiveRecord::Base
     )
   end
 
-
+  def self.search(keywords)
+    Question.where("lower(title) like ? OR lower(body) like ?", 
+    								*(["%#{keywords.downcase}%"] * 2)) || []
+  end
 end

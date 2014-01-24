@@ -45,6 +45,7 @@ class Activity < ActiveRecord::Base
 	  	answer = Answer.find(subject_id)
 
 	  	answer.question.followers.each do |person|
+	  		next if person.id == answer.question.author.id
 	  		Notification.create!({
 		    	:owner_id   => person.id,
 		    	:owner_type => "User",
@@ -53,6 +54,7 @@ class Activity < ActiveRecord::Base
 			  })
 	  	end
 
+	  	return if answer.question.author_id == answer.author.id
 	  	Notification.create!({
 	    	:owner_id   => answer.question.author_id,
 	    	:owner_type => "User",
@@ -65,7 +67,7 @@ class Activity < ActiveRecord::Base
 	def url(sub = subject)
 		return nil unless sub
 		attrs = {
-			:host 			=> "questiona.herokuapp.com",
+			:host 			=> "localhost:3000", # "questiona.herokuapp.com",
 			:controller => sub.class.to_s.tableize,
 			:action 		=> "show",
 			:id 				=> sub

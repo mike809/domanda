@@ -15,10 +15,14 @@ class AnswersController < ApplicationController
 	end
 
 	def show
-		@answer   = Answer.find(params[:id])
-		@question = @answer.question
-
-		render 'questions/show'
+		@answer   = Answer.find_by_id(params[:id])
+		if @answer
+			@question = @answer.question
+			render 'questions/show'
+		else
+			flash_msg(["Answer not found."])
+			redirect_to :back
+		end
 	end
 
 	def index

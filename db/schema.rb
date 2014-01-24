@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20140122013100) do
 
   create_table "answers", :force => true do |t|
     t.integer  "author_id"
-    t.string   "body"
+    t.text     "body"
     t.integer  "upvotes"
     t.integer  "question_id"
     t.datetime "created_at",  :null => false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20140122013100) do
 
   create_table "questions", :force => true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.integer  "author_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

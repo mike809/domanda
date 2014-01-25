@@ -1,5 +1,6 @@
 <% action = (edit ? question_url(question) : questions_url) %>
 <% method = (edit ? "put" : "post") %>
+<% question = Question.new unless edit %>
 
 <div class="col-sm-8 col-sm-offset-2">
 	<form action="<%= action %>" method="post" id="new-question-form">

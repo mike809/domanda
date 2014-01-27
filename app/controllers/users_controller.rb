@@ -7,9 +7,9 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(params[:user])
+		@user = User.new(params[:user])
 
-		if @user.save
+		if @user.valid?
 			login(@user)
 			flash_msg(["You successfully created an account!"], :success)
 			redirect_to user_url(@user)

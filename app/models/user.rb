@@ -32,9 +32,7 @@ class User < ActiveRecord::Base
 
   validates :email, :username,
             :presence => true,
-            :uniqueness => { :case_sensitive => false },
-            :on => :create,
-            :on => :update
+            :uniqueness => { :case_sensitive => false } 
   
   validates :password_digest, :presence => true
 
@@ -49,7 +47,6 @@ class User < ActiveRecord::Base
   has_many :followed_me, :class_name => "Follow", :foreign_key => :followee_id
 
   has_many :followers, :through => :followed_me, :source => :follower
-  # has_many :people_followed, :through => :i_followed, :source => :followee
 
   has_many :authored_questions,
            :class_name => "Question",

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   include SessionsHelper
   include ApplicationHelper
-    
   
   before_filter :authenticate_user!
   before_filter :delete_notification
